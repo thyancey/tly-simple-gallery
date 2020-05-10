@@ -1,0 +1,17 @@
+{
+  "info":{ 
+    "name": "Bill & Teds excellent boilerplate",
+    "rating": 10,
+    "inProgress": true
+  },
+  "items":[
+    {
+      "name": "Apples",
+      "detail": "Tasty apples"
+    },
+    {
+      "name": "Bananas",
+      "detail": "Bodacious bananas"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Vanilla JS Boilerplate</title>
+    <meta name="description" content="Vanilla JS Boilerplate">
+    <meta name="author" content="Tom Yancey">
+
+    <link rel="stylesheet" href="./css/styles.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Manrope&family=VT323&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <script src="./js/utils.js"></script>
+    <script src="./js/index.js"></script>
+    <header>
+      <h1>Bill & Ted's Excellent Template</h1>
+      <button onclick="onGlobalButton('1')">Global Button 1</button>
+      <button onclick="onGlobalButton('2')">Global Button 2</button>
+    </header>
+    <main>
+      <div class="popup">
+        <div class="board">
+
+          <div id="player-two" class="player player-top">
+          </div>
+
+          <div id="player-one" class="player player-bottom">
+          </div>
+          
+        </div>
+        <div class="input-box">
+          <span>></span>
+          <input id="user-input" type="text" placeholder="enter text"/>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
