@@ -1,0 +1,6 @@
+<items>
+  <item url="/elephant.png" alt="Elephant" meta="elephant mammal grey big" />
+  <item url="/giraffe.png" meta="tall yellow mammal" />
+  <item url="/hippo.png" meta="mammal" />
+  <item url="/snake.png" />
+</items>

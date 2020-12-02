@@ -1,17 +1,48 @@
 {
   "info":{ 
-    "name": "Bill & Teds excellent boilerplate",
-    "rating": 10,
-    "inProgress": true
+    "name": "Simple gallery",
+    "assetRoute": "assets/gallery"
   },
   "items":[
     {
-      "name": "Apples",
-      "detail": "Tasty apples"
+      "file": "/elephant.png",
+      "meta": "elephant mammal grey big",
+      "alt": "elephant"
     },
     {
-      "name": "Bananas",
-      "detail": "Bodacious bananas"
+      "file": "/giraffe.png",
+      "meta": "tall yellow mammal"
+    },
+    {
+      "file": "/hippo.png",
+      "meta": "mammal"
+    },
+    {
+      "file": "/monkey.png",
+      "meta": "mammal tail banana"
+    },
+    {
+      "file": "/panda.png",
+      "meta": "mammal bear"
+    },
+    {
+      "file": "/parrot.png",
+      "meta": "bird red"
+    },
+    {
+      "file": "/penguin.png",
+      "meta": "bird black"
+    },
+    {
+      "file": "/pig.png",
+      "meta": "mammal pink"
+    },
+    {
+      "file": "/rabbit.png",
+      "meta": "mammal grey small"
+    },
+    {
+      "file": "/snake.png"
     }
   ]
 }

@@ -10,13 +10,21 @@
   The actual start of the game kicks off near the bottom of the page, in the "setData"
   function.
 */
+
+const GALLERY_SELECTOR = '.gallery ul';
+
 class Main{
   constructor(){
     Log('the main instance has been instantiated!');
     this._ready = false;
     this._data = null;
+    this._items = [];
 
-    this._inputBar = new InputBar('#user-input', this.receiveInput);
+    this._searchKeywords = [];
+    this._filterKeywords = [];
+
+    this._inputFilter = new InputBar('#filter-input', 'filter', this.receiveInput, this.receiveFilterKeywords.bind(this));
+    this._inputSearch = new InputBar('#search-input', 'search', this.receiveInput, this.receiveSearchKeywords.bind(this));
   }
   
   reset(){
@@ -29,15 +37,60 @@ class Main{
 
   setData(data){
     this._data = data;
+    this.makeItems(this._data.items, this._data.info.assetRoute);
     this.onReady();
   }
+
+  clearTerms(){
+    this._inputFilter.clear();
+    this._inputSearch.clear();
+  }
+
+  makeItems(itemDataList, assetRoute){
+    // let element = document.querySelector(domSelector);
+    this._items = [];
+
+    itemDataList.forEach(itemData => {
+      this._items.push(new Item(itemData, assetRoute));
+    });
+
+    this.renderItems();
+  }
+
+  renderItems(){
+    const element =  document.querySelector(GALLERY_SELECTOR);
+    element.innerHTML = '';
+
+    let renderedItems = this._items.map(item => {
+      const result = item.render(this._searchKeywords, this._filterKeywords);
+      if(result) return result;
+    });
+    renderedItems.sort((a,b) => b.score - a.score).forEach(h => {
+      h && element.append(h.html)
+    })
+  }
+  
 
   logData(){
     Log('Here is the data:', this._data);
   }
 
-  receiveInput(inputText){
-    Log('received input: ', inputText);
+  receiveInput(inputText, type){
+    // Log(`received input from ${type}: `, inputText);
+  }
+
+  receiveSearchKeywords(keywordList){
+    // Log(`received search keywords: `, keywordList);
+    this._searchKeywords = keywordList;
+    
+    this.renderItems();
+  }
+
+  receiveFilterKeywords(keywordList){
+    // Log(`received filter keywords: `, keywordList);
+    this._filterKeywords = keywordList;
+
+    this.renderItems();
   }
 }
 
@@ -58,6 +111,10 @@ var main;
 */
 function onGlobalButton(arg){
   Log('global button clicked', arg);
+
+  if(arg === 'clearTerms'){
+    main.clearTerms();
+  }
 }
 
 
@@ -75,7 +132,9 @@ window.addEventListener('load', setupMain);
 
 function setupMain(){
   main = new Main();
+
   LoadData('./data/data.json', function(data){
     main.setData(data);
   });
+
 }

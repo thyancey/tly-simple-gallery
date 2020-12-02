@@ -4,12 +4,12 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Vanilla JS Boilerplate</title>
+    <title>Simple gallery</title>
     <meta name="description" content="Vanilla JS Boilerplate">
     <meta name="author" content="Tom Yancey">
 
     <link rel="stylesheet" href="./css/styles.css?v=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Manrope&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&family=Manrope&family=VT323&display=swap" rel="stylesheet">
 
   </head>
 
@@ -17,24 +17,22 @@
     <script src="./js/utils.js"></script>
     <script src="./js/index.js"></script>
     <header>
-      <h1>Bill & Ted's Excellent Template</h1>
-      <button onclick="onGlobalButton('1')">Global Button 1</button>
-      <button onclick="onGlobalButton('2')">Global Button 2</button>
-    </header>
-    <main>
-      <div class="popup">
-        <div class="board">
-
-          <div id="player-two" class="player player-top">
-          </div>
-
-          <div id="player-one" class="player player-bottom">
-          </div>
-          
+      <h1>Simple Gallery</h1>
+      <div id="input-area">
+        <div class="input-box">
+          <input id="search-input" type="text" placeholder="keywords it could have"/>
         </div>
         <div class="input-box">
-          <span>></span>
-          <input id="user-input" type="text" placeholder="enter text"/>
+          <input id="filter-input" type="text" placeholder="keywords it's GOTTA HAVE"/>
+        </div>
+        <button onclick="onGlobalButton('clearTerms')">Clear filters</button>
+      </div>
+    </header>
+    <main>
+      <input id="copy-helper" type="text" />
+      <div class="popup">
+        <div class="gallery">
+          <ul><!-- the icons go here --></ul>
         </div>
       </div>
     </main>
